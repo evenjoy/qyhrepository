@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monkey.dao.MemberMapper">
+	<resultMap type="Member" id="memberMap">
+		<id property="id" column="member_id" jdbcType="CHAR"></id>
+		<result property="loginName" column="member_loginname" jdbcType="VARCHAR"></result>
+		<result property="loginPassword" column="member_password" jdbcType="VARCHAR"></result>
+		<result property="memberType" column="member_type" jdbcType="VARCHAR"></result>
+		<result property="memberName" column="member_name" jdbcType="VARCHAR"></result>
+		<result property="sex" column="member_sex" jdbcType="VARCHAR"></result>
+		<result property="phone" column="member_phone" jdbcType="CHAR"></result>
+		<result property="jointime" column="member_jointime" jdbcType="TIMESTAMP"></result>
+	</resultMap>
+	<select id="login" parameterType="Member" resultMap="memberMap">
+		select
+			member_id,
+			member_loginname,
+			member_password,
+			member_type,
+			member_name,
+			member_sex,
+			member_phone,
+			member_jointime
+		from t_member where member_loginname=#{loginName} and member_password=#{loginPassword}
+	</select>
+	<select id="getCount" parameterType="Page" resultType="java.lang.Integer">
+	select
+			count(member_id)
+		from t_member where member_loginname like #{keyWord}
+		<if test="type!='全部'">
+			AND member_type=#{type}
+		</if>
+	</select>
+	<select id="getPageData" parameterType="Page" resultMap="memberMap">
+	select
+			member_id,
+			member_loginname,
+			member_password,
+			member_type,
+			member_name,
+			member_sex,
+			member_phone,
+			member_jointime
+		from t_member where member_loginname like #{keyWord}
+		<if test="type!='全部'">
+			AND member_type=#{type}
+		</if>
+		limit #{begin},#{pageSize}
+	</select>
+	<select id="findMemberByName" parameterType="java.lang.String" resultType="java.lang.String">
+		select member_id from t_member where member_loginname=#{loginname}
+	</select>
+	<insert id="addMember" parameterType="Member">
+		insert  into t_member(
+			member_id,
+			member_loginname,
+			member_password,
+			member_type,
+			member_name,
+			member_sex,
+			member_phone,
+			member_jointime) 
+		values (
+			#{id},
+			#{loginName},
+			#{loginPassword},
+			#{memberType},
+			#{memberName},
+			#{sex},
+			#{phone},
+			#{jointime})
+	</insert>
+	<delete id="deleteMeberById" parameterType="java.lang.String">
+		delete from t_member where member_id=#{memberId}
+	</delete>
+	<select id="findMemberById" parameterType="java.lang.String" resultMap="memberMap">
+		select
+			member_id,
+			member_loginname,
+			member_password,
+			member_type,
+			member_name,
+			member_sex,
+			member_phone,
+			member_jointime
+			from t_member where member_id=#{memberId}
+	</select>
+	<update id="updateMember" parameterType="Member">
+		update t_member set 
+			member_loginname=#{loginName},
+			member_password=#{loginPassword},
+			member_type=#{memberType},
+			member_name=#{memberName},
+			member_sex=#{sex},
+			member_phone=#{phone},
+			member_jointime=#{jointime}
+		where member_id =#{id}
+	</update>
+</mapper>

@@ -1,0 +1,225 @@
+<script src="js/adminjs/member.js"></script>
+<div role="tabpanel">
+	<!-- 页签导航 -->
+	<ul id="member_tab" class="nav nav-tabs " role="tablist">
+		<li role="presentation" class="active"><a href="#memberPanel"
+			aria-controls="memberPanel" role="tab" data-toggle="tab">列表</a></li>
+		<li role="presentation"><a href="#addmemberPanel"
+			aria-controls="addmemberPanel" role="tab" data-toggle="tab">新增</a></li>
+	</ul>
+
+	<!-- 页签面板-->
+	<div class="tab-content">
+		<!-- 用户信息 -->
+		<div role="tabpanel" class="tab-pane active" id="memberPanel">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form class="form-inline">
+						<div id="member_type" class="btn-group" role="group"
+							aria-label="身份">
+							<button type="button" class="btn btn-default">大一</button>
+							<button type="button" class="btn btn-default">大二</button>
+							<button type="button" class="btn btn-default">大三</button>
+							<button type="button" class="btn btn-default">大四</button>
+							<button type="button" class="btn btn-default">已毕业</button>
+							<button type="button" class="btn btn-default active">全部</button>
+						</div>
+						&nbsp;&nbsp;
+						<div class="input-group">
+							<input id="member_search" type="text" class="form-control"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button id="member_search_btn" class="btn btn-primary"
+									type="button">搜索</button>
+							</span>
+						</div>
+						<!-- input-group -->
+					</form>
+					<table id="member_table" class="table table-striped">
+						<thead>
+							<tr>
+								<th class="col-md-1">#</th>
+								<th class="col-md-1">用户名</th>
+								<th class="col-md-1">姓名</th>
+								<th class="col-md-1">性别</th>
+								<th class="col-md-1">年级</th>
+								<th class="col-md-1">电话</th>
+								<th class="col-md-2">加入日期</th>
+								<th class="col-md-2">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>caocao</td>
+								<td>曹操</td>
+								<td>男</td>
+								<td>学生</td>
+								<td>17811281315</td>
+								<td>2015-07-03</td>
+								<td><a href="" data-toggle="modal"
+									data-target="#editmember"><span
+										class="glyphicon glyphicon-pencil" aria-hidden="true"></span>编辑</a>
+									<a href="" data-toggle="modal"
+									data-target=".bs-example-modal-sm"><span
+										class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- end -->
+			<!-- 分页导航 -->
+			<nav class="col-md-4 col-md-offset-4">
+				<ul id="member_page" class="pagination">
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+		<!-- 新增用户 -->
+		<div role="tabpanel" class="tab-pane" id="addmemberPanel">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form id="register_from" role="form" class="form col-sm-4">
+						<div class="form-group col-sm-12">
+							<input type="email" class="form-control" id="memberloginName"
+								placeholder="用户名/电子邮箱"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="password" class="form-control" id="memberPassword"
+								placeholder="密码"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="password" class="form-control" id="memberPassword2"
+								placeholder="确认密码"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="text" class="form-control" id="membername"
+								placeholder="姓名"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="text" class="form-control" id="memberphone"
+								placeholder="联系电话"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<label>加入时间：</label>
+							<input type="date" id="jointime" class="form-control"
+								placeholder="加入时间"> <span></span>
+						</div>
+
+						<div class="form-group col-sm-12" align="left" id="sex">
+							<label>性别：</label> <label><input type="radio"
+								name="memberSex" value="男" checked="checked" />男</label> <label><input
+								type="radio" name="memberSex" value="女" />女</label>
+						</div>
+						<div class="form-group col-sm-12" align="left" id="type">
+							<label>年级：</label> 
+							<label><input type="radio" name="memberType" value="大一" checked="checked"  />大一</label> 
+							<label><input type="radio" name="memberType" value="大二" />大二</label>
+							<label><input type="radio" name="memberType" value="大三"  />大三</label>
+							<label><input type="radio" name="memberType" value="大四"  />大四</label> 
+							<label><input type="radio" name="memberType" value="已毕业" />已毕业</label>
+						</div>
+						<button type="submit" class="btn btn-success">注册</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end -->
+</div>
+<!-- end content-->
+
+<!-- 删除用户的Modal界面 -->
+<div id="deletemodal" class="modal fade bs-example-modal-sm"
+	tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">删除用户</h4>
+			</div>
+			<div class="modal-body">确认删除该记录？</div>
+			<div class="modal-footer">
+				<button id="delete_member_btn" type="button" class="btn btn-primary">
+					确 认</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">
+					取 消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 删除用户end -->
+
+<!-- 修改工作室成员的Modal界面 -->
+<div class="modal fade" id="editmember" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" align="center">
+				<h4 class="modal-title" id="myModalLabel">
+					<strong>编 辑 用 户</strong>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" id="edit">
+					<div class="form-group col-sm-12">
+							<input type="email" class="form-control" id="memberloginName"
+								placeholder="用户名/电子邮箱"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="password" class="form-control" id="memberPassword"
+								placeholder="密码"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="password" class="form-control" id="memberPassword2"
+								placeholder="确认密码"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="text" class="form-control" id="membername"
+								placeholder="姓名"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<input type="text" class="form-control" id="memberphone"
+								placeholder="联系电话"> <span></span>
+						</div>
+						<div class="form-group col-sm-12">
+							<label>加入时间：</label>
+							<input type="date" id="jointime" class="form-control"
+								placeholder="加入时间"> <span></span>
+						</div>
+
+						<div class="form-group col-sm-12" align="left" id="sex">
+							<label>性别：</label> <label><input type="radio"
+								name="memberSex" value="男" />男</label> <label><input
+								type="radio" name="memberSex" value="女" />女</label>
+						</div>
+						<div class="form-group col-sm-12" align="left" id="type">
+							<label>年级：</label> 
+							<label><input type="radio" name="memberType" value="大一" />大一</label> 
+							<label><input type="radio" name="memberType" value="大二" />大二</label>
+							<label><input type="radio" name="memberType" value="大三"  />大三</label>
+							<label><input type="radio" name="memberType" value="大四"  />大四</label> 
+							<label><input type="radio" name="memberType" value="已毕业" />已毕业</label>
+						</div>
+						<button type="submit" class="btn btn-success">注册</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

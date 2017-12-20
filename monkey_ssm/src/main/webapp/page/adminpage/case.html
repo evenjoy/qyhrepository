@@ -1,0 +1,124 @@
+<script src="js/adminjs/case.js"></script>
+<script charset="utf-8" src="editor/kindeditor.js"></script>
+<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id');
+        });
+</script>
+<div class="container">
+	<div class="container">
+		<button id="listbutton" type="button" class="btn btn-primary">列表</button>
+		<button id="addbutton" type="button" class="btn btn-primary">新增</button>
+		</br>
+	</div>
+	</br>
+	<div class="container" id="list" style="display: block">
+		<div class="container">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" style="width: 350px; height: 300px;">
+					<img data-src="holder.js/300x200" alt="..."
+						style="width: 340px; height: 150px; background: red;">
+					<div class="caption">
+						<h3>这里是案例名称</h3>
+						<p></p>
+						<p>所属单位：食品科学技术学院</p>
+						<p>
+							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
+							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" style="width: 350px; height: 300px;">
+					<img data-src="holder.js/300x200" alt="..."
+						style="width: 340px; height: 150px; background: red;">
+					<div class="caption">
+						<h3>这里是案例名称</h3>
+						<p></p>
+						<p>所属单位：食品科学技术学院</p>
+						<p>
+							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
+							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" style="width: 350px; height: 300px;">
+					<img data-src="holder.js/300x200" alt="..."
+						style="width: 340px; height: 150px; background: red;">
+					<div class="caption">
+						<h3>这里是案例名称</h3>
+						<p></p>
+						<p>所属单位：食品科学技术学院</p>
+						<p>
+							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
+							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail" style="width: 350px; height: 300px;">
+					<img data-src="holder.js/300x200" alt="..."
+						style="width: 340px; height: 150px; background: red;">
+					<div class="caption">
+						<h3>这里是案例名称</h3>
+						<p></p>
+						<p>所属单位：食品科学技术学院</p>
+						<p>
+							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
+							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" align="center">
+			<nav aria-label="Page navigation">
+				<ul class="pagination">
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="container" id="add" style="display: none">
+		<form role="form" class="form col-sm-7">
+			<div class="form-group col-sm-12">
+				<input type="email" class="form-control" id="exampleInputEmail"
+					placeholder="案例名称">
+			</div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="exampleInputPassword1"
+					placeholder="所属单位">
+			</div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="exampleInputPassword1"
+					placeholder="时间">
+			</div>
+			<div class="form-group col-sm-12">
+		<textarea id="editor_id" name="content" class="form-group col-sm-12"style="width:100%;height:300px;">
+&lt;strong&gt;HTML内容&lt;/strong&gt;
+</textarea>
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</div>
+
+</div>
