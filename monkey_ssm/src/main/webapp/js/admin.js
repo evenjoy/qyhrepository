@@ -7,6 +7,5 @@ function load(){
 		//更换正文
 		var target = $(this).children("a").attr("name");
 		$('.container').load("page/adminpage/"+target+".html");
-
 	});
 }

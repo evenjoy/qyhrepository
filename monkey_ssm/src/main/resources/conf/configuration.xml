@@ -6,8 +6,8 @@
 	<typeAliases>
 		<typeAlias type="com.monkey.entity.User" alias="User"/>
 		<typeAlias type="com.monkey.entity.Member" alias="Member"/>
+		<typeAlias type="com.monkey.entity.Case" alias="case"/>
 		<typeAlias type="com.monkey.vo.Page" alias="Page"/>
-
 	</typeAliases>
 	
 	

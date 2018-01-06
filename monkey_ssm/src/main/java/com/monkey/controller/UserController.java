@@ -91,12 +91,4 @@ public class UserController {
 	public Result deleteUser(@PathVariable("id") String id){
 		return this.userService.deleteUserById(id);		
 	}	
-	//上传
-	@RequestMapping(value="/test",method=RequestMethod.POST)
-	@ResponseBody
-	public void test(HttpServletRequest request,HttpServletResponse response,MultipartFile file){
-		System.out.println(request.getContentType());
-		System.out.println(file.getOriginalFilename());
-		this.fileUploadUtil.upload(request, response);
-	}		
 }

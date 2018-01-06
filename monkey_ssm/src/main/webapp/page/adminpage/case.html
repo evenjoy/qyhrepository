@@ -1,20 +1,20 @@
-<script src="js/adminjs/case.js"></script>
-<script charset="utf-8" src="editor/kindeditor.js"></script>
-<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
-<script>
-        KindEditor.ready(function(K) {
-                window.editor = K.create('#editor_id');
-        });
-</script>
-<div class="container">
+	<script src="js/adminjs/case.js"></script>
+<script charset="utf-8" src="kindeditor/kindeditor-all.js"></script>
+	<script charset="utf-8" src="kindeditor/lang/zh-CN.js"></script>
+	<script charset="utf-8" src="kindeditor/plugins/code/prettify.js"></script>
+<div class="container" id="content">
 	<div class="container">
 		<button id="listbutton" type="button" class="btn btn-primary">列表</button>
 		<button id="addbutton" type="button" class="btn btn-primary">新增</button>
 		</br>
 	</div>
 	</br>
+	
+	<!-- ##################################################### -->
+	<!------------------------- 列表------------------------ -->
+	<!-- ##################################################### -->
 	<div class="container" id="list" style="display: block">
-		<div class="container">
+		<div class="container" id="list_content">
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail" style="width: 350px; height: 300px;">
 					<img data-src="holder.js/300x200" alt="..."
@@ -27,7 +27,6 @@
 							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
 							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
 						</p>
-
 					</div>
 				</div>
 			</div>
@@ -75,14 +74,13 @@
 							<a href="">连接此网站</a>&nbsp;&nbsp;&nbsp; <a href="">详情</a>&nbsp;&nbsp;&nbsp;
 							<a href="">编辑</a>&nbsp;&nbsp;&nbsp; <a href="">删除</a>
 						</p>
-
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container" align="center">
 			<nav aria-label="Page navigation">
-				<ul class="pagination">
+				<ul class="pagination" id="pageNum">
 					<li><a href="#" aria-label="Previous"> <span
 							aria-hidden="true">&laquo;</span>
 					</a></li>
@@ -98,27 +96,76 @@
 			</nav>
 		</div>
 	</div>
-	<div class="container" id="add" style="display: none">
-		<form role="form" class="form col-sm-7">
+	<!-- ##################################################### -->
+	<!-------------------------- 新增--------------------------- -->
+	<!-- ##################################################### -->
+	<div class="container" id="add" style="display:none">
+		<form class="form col-sm-7" action="">
 			<div class="form-group col-sm-12">
-				<input type="email" class="form-control" id="exampleInputEmail"
+				<input type="text" class="form-control" id="casename"
 					placeholder="案例名称">
 			</div>
 			<div class="form-group col-sm-12">
-				<input type="text" class="form-control" id="exampleInputPassword1"
+				<input type="text" class="form-control" id="caseunit"
 					placeholder="所属单位">
 			</div>
 			<div class="form-group col-sm-12">
-				<input type="text" class="form-control" id="exampleInputPassword1"
-					placeholder="时间">
+				<input type="text" class="form-control" id="caselasttime"
+					placeholder="时间(2017-01-01)">
 			</div>
 			<div class="form-group col-sm-12">
-		<textarea id="editor_id" name="content" class="form-group col-sm-12"style="width:100%;height:300px;">
-&lt;strong&gt;HTML内容&lt;/strong&gt;
-</textarea>
+				<input type="text" class="form-control" id="casehref"
+					placeholder="链接地址(请填入全路径连接如https://www.baidu.com)">
+			</div>
+			<div class="form-group col-sm-12">
+				<textarea name="content1" cols="100" rows="8" style="width:100%;height:100%;visibility:hidden;">
+ 
+				</textarea>
 			</div>
 			<button type="submit" class="btn btn-success">Submit</button>
 		</form>
 	</div>
-
+	<!-- ##################################################### -->
+	<!------------------------- 修改-------------------------- -->
+	<!-- ##################################################### -->
+	<div class="container" id="update" style="display: none">
+		<form class="form col-sm-7" action="">
+			<div id="caseid" style="display:none"></div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="casename"
+					placeholder="案例名称">
+			</div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="caseunit"
+					placeholder="所属单位">
+			</div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="caselasttime"
+					placeholder="时间(2017-01-01)">
+			</div>
+			<div class="form-group col-sm-12">
+				<input type="text" class="form-control" id="casehref"
+					placeholder="链接地址(请填入全路径连接如https://www.baidu.com)">
+			</div>
+			<div class="form-group col-sm-12">
+				<textarea name="content2" cols="100" rows="8" style="width:100%;height:100%;visibility:hidden;">
+ 
+				</textarea>
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</div>
+	<!-- ##################################################### -->
+	<!------------------------- 详情-------------------------- -->
+	<!-- ##################################################### -->
+	<div class="container" id="detail" align="center" style="display:none">
+		<h2>显示标题</h2>
+		<br/>
+		<p>所属单位：所属单位&nbsp;&nbsp;&nbsp;&nbsp;项目结束日期：2017-1-4</p>
+		<div class="container" style="border-top:1px solid #666;border-bottom:1px solid #666; padding:10px 0px 10px 0px; text-align:left">
+			内容。。。
+		</div>
+		<a href="">【返回】</a>
+	</div>
+	
 </div>
